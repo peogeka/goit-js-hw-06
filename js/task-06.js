@@ -1,14 +1,11 @@
- const input = document.getElementById('validation-input');
-
-input.addEventListener('blur', function() {
-    const desiredLength = input.getAttribute('data-length');
-    const enteredLength = input.value.length;
-
-if (enteredLength == desiredLength) {
-        input.classList.remove('invalid');
-        input.classList.add('valid');
-} else {
-        input.classList.remove('valid');
-        input.classList.add('invalid');
-      }
-});
+const inputEl = document.querySelector('#validation-input');
+const dataLength = inputEl.getAttribute('data-length');
+const checkInputValueLength = (event) => {
+        const CurrentValue = event.currentTarget.value
+        if (Number(dataLength) === Number(CurrentValue.length)) {
+                inputEl.classList.add("valid")
+        } else {
+                inputEl.classList.add("invalid")
+        }
+}
+inputEl.addEventListener("blur", checkInputValueLength)

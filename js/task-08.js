@@ -3,7 +3,7 @@ formLogin.addEventListener("submit", handlerSubmit);
 function handlerSubmit(event) {
     event.preventDefault();
     const { email, password } = event.currentTarget.elements
-    if (!email.value || !password.value){
+    if (!email.value.trim() || !password.value.trim()){
         const message = "insert all feld";
         alert(message)
 } else {
@@ -13,5 +13,5 @@ function handlerSubmit(event) {
     }
         console.log(data)
 }
-formLogin.reset()
+event.target.reset();
 }
